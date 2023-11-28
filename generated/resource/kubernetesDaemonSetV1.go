@@ -423,6 +423,36 @@ const kubernetesDaemonSetV1 = `{
                                                     "description_kind": "plain"
                                                   },
                                                   "nesting_mode": "list"
+                                                },
+                                                "match_fields": {
+                                                  "block": {
+                                                    "attributes": {
+                                                      "key": {
+                                                        "description": "The label key that the selector applies to.",
+                                                        "description_kind": "plain",
+                                                        "required": true,
+                                                        "type": "string"
+                                                      },
+                                                      "operator": {
+                                                        "description": "A key's relationship to a set of values. Valid operators ard ` + "`" + `In` + "`" + `, ` + "`" + `NotIn` + "`" + `, ` + "`" + `Exists` + "`" + `, ` + "`" + `DoesNotExist` + "`" + `, ` + "`" + `Gt` + "`" + `, and ` + "`" + `Lt` + "`" + `.",
+                                                        "description_kind": "plain",
+                                                        "required": true,
+                                                        "type": "string"
+                                                      },
+                                                      "values": {
+                                                        "description": "An array of string values. If the operator is ` + "`" + `In` + "`" + ` or ` + "`" + `NotIn` + "`" + `, the values array must be non-empty. If the operator is ` + "`" + `Exists` + "`" + ` or ` + "`" + `DoesNotExist` + "`" + `, the values array must be empty. This array is replaced during a strategic merge patch.",
+                                                        "description_kind": "plain",
+                                                        "optional": true,
+                                                        "type": [
+                                                          "set",
+                                                          "string"
+                                                        ]
+                                                      }
+                                                    },
+                                                    "description": "A list of node selector requirements by node's fields. The requirements are ANDed.",
+                                                    "description_kind": "plain"
+                                                  },
+                                                  "nesting_mode": "list"
                                                 }
                                               },
                                               "description": "A node selector term, associated with the corresponding weight.",
@@ -470,6 +500,36 @@ const kubernetesDaemonSetV1 = `{
                                                       }
                                                     },
                                                     "description": "List of node selector requirements. The requirements are ANDed.",
+                                                    "description_kind": "plain"
+                                                  },
+                                                  "nesting_mode": "list"
+                                                },
+                                                "match_fields": {
+                                                  "block": {
+                                                    "attributes": {
+                                                      "key": {
+                                                        "description": "The label key that the selector applies to.",
+                                                        "description_kind": "plain",
+                                                        "required": true,
+                                                        "type": "string"
+                                                      },
+                                                      "operator": {
+                                                        "description": "A key's relationship to a set of values. Valid operators ard ` + "`" + `In` + "`" + `, ` + "`" + `NotIn` + "`" + `, ` + "`" + `Exists` + "`" + `, ` + "`" + `DoesNotExist` + "`" + `, ` + "`" + `Gt` + "`" + `, and ` + "`" + `Lt` + "`" + `.",
+                                                        "description_kind": "plain",
+                                                        "required": true,
+                                                        "type": "string"
+                                                      },
+                                                      "values": {
+                                                        "description": "An array of string values. If the operator is ` + "`" + `In` + "`" + ` or ` + "`" + `NotIn` + "`" + `, the values array must be non-empty. If the operator is ` + "`" + `Exists` + "`" + ` or ` + "`" + `DoesNotExist` + "`" + `, the values array must be empty. This array is replaced during a strategic merge patch.",
+                                                        "description_kind": "plain",
+                                                        "optional": true,
+                                                        "type": [
+                                                          "set",
+                                                          "string"
+                                                        ]
+                                                      }
+                                                    },
+                                                    "description": "A list of node selector requirements by node's fields. The requirements are ANDed.",
                                                     "description_kind": "plain"
                                                   },
                                                   "nesting_mode": "list"
@@ -3343,6 +3403,22 @@ const kubernetesDaemonSetV1 = `{
                           },
                           "nesting_mode": "list"
                         },
+                        "os": {
+                          "block": {
+                            "attributes": {
+                              "name": {
+                                "description": "Name is the name of the operating system. The currently supported values are linux and windows.",
+                                "description_kind": "plain",
+                                "required": true,
+                                "type": "string"
+                              }
+                            },
+                            "description": "Specifies the OS of the containers in the pod.",
+                            "description_kind": "plain"
+                          },
+                          "max_items": 1,
+                          "nesting_mode": "list"
+                        },
                         "readiness_gate": {
                           "block": {
                             "attributes": {
@@ -3477,6 +3553,40 @@ const kubernetesDaemonSetV1 = `{
                                   "description": "holds a list of namespaced sysctls used for the pod.",
                                   "description_kind": "plain"
                                 },
+                                "nesting_mode": "list"
+                              },
+                              "windows_options": {
+                                "block": {
+                                  "attributes": {
+                                    "gmsa_credential_spec": {
+                                      "description": "GMSACredentialSpec is where the GMSA admission webhook inlines the contents of the GMSA credential spec named by the GMSACredentialSpecName field",
+                                      "description_kind": "plain",
+                                      "optional": true,
+                                      "type": "string"
+                                    },
+                                    "gmsa_credential_spec_name": {
+                                      "description": "GMSACredentialSpecName is the name of the GMSA credential spec to use.",
+                                      "description_kind": "plain",
+                                      "optional": true,
+                                      "type": "string"
+                                    },
+                                    "host_process": {
+                                      "description": "HostProcess determines if a container should be run as a 'Host Process' container. Default value is false.",
+                                      "description_kind": "plain",
+                                      "optional": true,
+                                      "type": "bool"
+                                    },
+                                    "run_as_username": {
+                                      "description": "The UserName in Windows to run the entrypoint of the container process. Defaults to the user specified in image metadata if unspecified. May also be set in PodSecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.",
+                                      "description_kind": "plain",
+                                      "optional": true,
+                                      "type": "string"
+                                    }
+                                  },
+                                  "description": "The Windows specific settings applied to all containers. If unspecified, the options within a container's SecurityContext will be used. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence. Note that this field cannot be set when spec.os.name is linux.",
+                                  "description_kind": "plain"
+                                },
+                                "max_items": 1,
                                 "nesting_mode": "list"
                               }
                             },

@@ -58,6 +58,20 @@ const kubernetesPod = `{
                                             ]
                                           }
                                         ]
+                                      ],
+                                      "match_fields": [
+                                        "list",
+                                        [
+                                          "object",
+                                          {
+                                            "key": "string",
+                                            "operator": "string",
+                                            "values": [
+                                              "set",
+                                              "string"
+                                            ]
+                                          }
+                                        ]
                                       ]
                                     }
                                   ]
@@ -77,6 +91,20 @@ const kubernetesPod = `{
                                     "object",
                                     {
                                       "match_expressions": [
+                                        "list",
+                                        [
+                                          "object",
+                                          {
+                                            "key": "string",
+                                            "operator": "string",
+                                            "values": [
+                                              "set",
+                                              "string"
+                                            ]
+                                          }
+                                        ]
+                                      ],
+                                      "match_fields": [
                                         "list",
                                         [
                                           "object",
@@ -1386,6 +1414,15 @@ const kubernetesPod = `{
                 "map",
                 "string"
               ],
+              "os": [
+                "list",
+                [
+                  "object",
+                  {
+                    "name": "string"
+                  }
+                ]
+              ],
               "priority_class_name": "string",
               "readiness_gate": [
                 "list",
@@ -1442,6 +1479,18 @@ const kubernetesPod = `{
                         {
                           "name": "string",
                           "value": "string"
+                        }
+                      ]
+                    ],
+                    "windows_options": [
+                      "list",
+                      [
+                        "object",
+                        {
+                          "gmsa_credential_spec": "string",
+                          "gmsa_credential_spec_name": "string",
+                          "host_process": "bool",
+                          "run_as_username": "string"
                         }
                       ]
                     ]

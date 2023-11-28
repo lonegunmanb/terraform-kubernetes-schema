@@ -21,7 +21,7 @@ const kubernetesIngressClassV1 = `{
         "block": {
           "attributes": {
             "annotations": {
-              "description": "An unstructured key value map stored with the ingress_class that may be used to store arbitrary metadata. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/",
+              "description": "An unstructured key value map stored with the ingress_class_v1 that may be used to store arbitrary metadata. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/",
               "description_kind": "plain",
               "optional": true,
               "type": [
@@ -42,7 +42,7 @@ const kubernetesIngressClassV1 = `{
               "type": "number"
             },
             "labels": {
-              "description": "Map of string keys and values that can be used to organize and categorize (scope and select) the ingress_class. May match selectors of replication controllers and services. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/",
+              "description": "Map of string keys and values that can be used to organize and categorize (scope and select) the ingress_class_v1. May match selectors of replication controllers and services. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/",
               "description_kind": "plain",
               "optional": true,
               "type": [
@@ -52,25 +52,25 @@ const kubernetesIngressClassV1 = `{
             },
             "name": {
               "computed": true,
-              "description": "Name of the ingress_class, must be unique. Cannot be updated. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+              "description": "Name of the ingress_class_v1, must be unique. Cannot be updated. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
               "description_kind": "plain",
               "optional": true,
               "type": "string"
             },
             "resource_version": {
               "computed": true,
-              "description": "An opaque value that represents the internal version of this ingress_class that can be used by clients to determine when ingress_class has changed. More info: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#concurrency-control-and-consistency",
+              "description": "An opaque value that represents the internal version of this ingress_class_v1 that can be used by clients to determine when ingress_class_v1 has changed. More info: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#concurrency-control-and-consistency",
               "description_kind": "plain",
               "type": "string"
             },
             "uid": {
               "computed": true,
-              "description": "The unique in time and space value for this ingress_class. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#uids",
+              "description": "The unique in time and space value for this ingress_class_v1. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#uids",
               "description_kind": "plain",
               "type": "string"
             }
           },
-          "description": "Standard ingress_class's metadata. More info: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#metadata",
+          "description": "Standard ingress_class_v1's metadata. More info: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#metadata",
           "description_kind": "plain"
         },
         "max_items": 1,
@@ -81,7 +81,7 @@ const kubernetesIngressClassV1 = `{
         "block": {
           "attributes": {
             "controller": {
-              "description": "Controller refers to the name of the controller that should handle this class. This allows for different \"flavors\" that are controlled by the same controller. For example, you may have different Parameters for the same implementing controller. This should be specified as a domain-prefixed path no more than 250 characters in length, e.g. \"acme.io/ingress-controller\". This field is immutable.",
+              "description": "controller refers to the name of the controller that should handle this class. This allows for different \"flavors\" that are controlled by the same controller. For example, you may have different parameters for the same implementing controller. This should be specified as a domain-prefixed path no more than 250 characters in length, e.g. \"acme.io/ingress-controller\". This field is immutable.",
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -126,7 +126,7 @@ const kubernetesIngressClassV1 = `{
               "nesting_mode": "list"
             }
           },
-          "description": "Spec is the desired state of the IngressClass. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status",
+          "description": "spec is the desired state of the IngressClass. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status",
           "description_kind": "plain"
         },
         "max_items": 1,

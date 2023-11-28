@@ -17,7 +17,7 @@ const kubernetesIngressV1 = `{
       },
       "spec": {
         "computed": true,
-        "description": "Spec is the desired state of the Ingress. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status",
+        "description": "spec is the desired state of the Ingress. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status",
         "description_kind": "plain",
         "type": [
           "list",
