@@ -121,6 +121,27 @@ const kubernetesStatefulSet = `{
             }
           },
           "block_types": {
+            "persistent_volume_claim_retention_policy": {
+              "block": {
+                "attributes": {
+                  "when_deleted": {
+                    "description": "This field controls what happens when a Statefulset is deleted. Default is Retain.",
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "when_scaled": {
+                    "description": "This field controls what happens when a Statefulset is scaled. Default is Retain.",
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  }
+                },
+                "description": "The field controls if and how PVCs are deleted during the lifecycle of a StatefulSet.",
+                "description_kind": "plain"
+              },
+              "nesting_mode": "list"
+            },
             "selector": {
               "block": {
                 "attributes": {
@@ -212,6 +233,12 @@ const kubernetesStatefulSet = `{
                         "name": {
                           "computed": true,
                           "description": "Name of the stateful set, must be unique. Cannot be updated. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+                          "description_kind": "plain",
+                          "optional": true,
+                          "type": "string"
+                        },
+                        "namespace": {
+                          "description": "Namespace defines the space within which name of the stateful set must be unique.",
                           "description_kind": "plain",
                           "optional": true,
                           "type": "string"
@@ -4195,6 +4222,13 @@ const kubernetesStatefulSet = `{
                                                   "optional": true,
                                                   "type": "string"
                                                 },
+                                                "volume_mode": {
+                                                  "computed": true,
+                                                  "description": "Defines what type of volume is required by the claim.",
+                                                  "description_kind": "plain",
+                                                  "optional": true,
+                                                  "type": "string"
+                                                },
                                                 "volume_name": {
                                                   "computed": true,
                                                   "description": "The binding reference to the PersistentVolume backing this claim.",
@@ -5247,6 +5281,13 @@ const kubernetesStatefulSet = `{
                         "storage_class_name": {
                           "computed": true,
                           "description": "Name of the storage class requested by the claim",
+                          "description_kind": "plain",
+                          "optional": true,
+                          "type": "string"
+                        },
+                        "volume_mode": {
+                          "computed": true,
+                          "description": "Defines what type of volume is required by the claim.",
                           "description_kind": "plain",
                           "optional": true,
                           "type": "string"

@@ -1805,6 +1805,7 @@ const kubernetesPod = `{
                                         ]
                                       ],
                                       "storage_class_name": "string",
+                                      "volume_mode": "string",
                                       "volume_name": "string"
                                     }
                                   ]

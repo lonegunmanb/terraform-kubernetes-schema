@@ -4148,6 +4148,13 @@ const kubernetesReplicationController = `{
                                                   "optional": true,
                                                   "type": "string"
                                                 },
+                                                "volume_mode": {
+                                                  "computed": true,
+                                                  "description": "Defines what type of volume is required by the claim.",
+                                                  "description_kind": "plain",
+                                                  "optional": true,
+                                                  "type": "string"
+                                                },
                                                 "volume_name": {
                                                   "computed": true,
                                                   "description": "The binding reference to the PersistentVolume backing this claim.",
