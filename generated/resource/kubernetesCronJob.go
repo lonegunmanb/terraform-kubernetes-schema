@@ -167,6 +167,12 @@ const kubernetesCronJob = `{
                           "optional": true,
                           "type": "string"
                         },
+                        "namespace": {
+                          "description": "Namespace defines the space within which name of the jobTemplateSpec must be unique.",
+                          "description_kind": "plain",
+                          "optional": true,
+                          "type": "string"
+                        },
                         "resource_version": {
                           "computed": true,
                           "description": "An opaque value that represents the internal version of this jobTemplateSpec that can be used by clients to determine when jobTemplateSpec has changed. More info: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#concurrency-control-and-consistency",
