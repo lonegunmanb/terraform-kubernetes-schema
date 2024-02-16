@@ -137,6 +137,78 @@ const kubernetesJobV1 = `{
             }
           },
           "block_types": {
+            "pod_failure_policy": {
+              "block": {
+                "block_types": {
+                  "rule": {
+                    "block": {
+                      "attributes": {
+                        "action": {
+                          "description_kind": "plain",
+                          "optional": true,
+                          "type": "string"
+                        }
+                      },
+                      "block_types": {
+                        "on_exit_codes": {
+                          "block": {
+                            "attributes": {
+                              "container_name": {
+                                "description_kind": "plain",
+                                "optional": true,
+                                "type": "string"
+                              },
+                              "operator": {
+                                "description_kind": "plain",
+                                "optional": true,
+                                "type": "string"
+                              },
+                              "values": {
+                                "description_kind": "plain",
+                                "required": true,
+                                "type": [
+                                  "list",
+                                  "number"
+                                ]
+                              }
+                            },
+                            "description_kind": "plain"
+                          },
+                          "max_items": 1,
+                          "nesting_mode": "list"
+                        },
+                        "on_pod_condition": {
+                          "block": {
+                            "attributes": {
+                              "status": {
+                                "description_kind": "plain",
+                                "optional": true,
+                                "type": "string"
+                              },
+                              "type": {
+                                "description_kind": "plain",
+                                "optional": true,
+                                "type": "string"
+                              }
+                            },
+                            "description_kind": "plain"
+                          },
+                          "nesting_mode": "list"
+                        }
+                      },
+                      "description": "A label query over volumes to consider for binding.",
+                      "description_kind": "plain"
+                    },
+                    "min_items": 1,
+                    "nesting_mode": "list"
+                  }
+                },
+                "description": "Specifies the maximum desired number of pods the job should run at any given time. The actual number of pods running in steady state will be less than this number when ((.spec.completions - .status.successful) \u003c .spec.parallelism), i.e. when the work left to do is less than max parallelism. More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/",
+                "description_kind": "plain"
+              },
+              "max_items": 1,
+              "nesting_mode": "list"
+            },
             "selector": {
               "block": {
                 "attributes": {
@@ -4139,7 +4211,7 @@ const kubernetesJobV1 = `{
                                 "block": {
                                   "attributes": {
                                     "medium": {
-                                      "description": "What type of storage medium should back this directory. The default is \"\" which means to use the node's default medium. Must be an empty string (default) or Memory. More info: https://kubernetes.io/docs/concepts/storage/volumes#emptydir",
+                                      "description": "What type of storage medium should back this directory. The default is \"\" which means to use the node's default medium. Must be one of [\"\" \"Memory\" \"HugePages\" \"HugePages-2Mi\" \"HugePages-1Gi\"]. More info: https://kubernetes.io/docs/concepts/storage/volumes#emptydir",
                                       "description_kind": "plain",
                                       "optional": true,
                                       "type": "string"
