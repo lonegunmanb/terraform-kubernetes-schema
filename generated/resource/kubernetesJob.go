@@ -3707,11 +3707,38 @@ const kubernetesJob = `{
                         "topology_spread_constraint": {
                           "block": {
                             "attributes": {
+                              "match_label_keys": {
+                                "description": "is a set of pod label keys to select the pods over which spreading will be calculated.",
+                                "description_kind": "plain",
+                                "optional": true,
+                                "type": [
+                                  "set",
+                                  "string"
+                                ]
+                              },
                               "max_skew": {
                                 "description": "describes the degree to which pods may be unevenly distributed.",
                                 "description_kind": "plain",
                                 "optional": true,
                                 "type": "number"
+                              },
+                              "min_domains": {
+                                "description": "indicates a minimum number of eligible domains.",
+                                "description_kind": "plain",
+                                "optional": true,
+                                "type": "number"
+                              },
+                              "node_affinity_policy": {
+                                "description": "indicates how we will treat Pod's nodeAffinity/nodeSelector when calculating pod topology spread skew.",
+                                "description_kind": "plain",
+                                "optional": true,
+                                "type": "string"
+                              },
+                              "node_taints_policy": {
+                                "description": "indicates how we will treat node taints when calculating pod topology spread skew.",
+                                "description_kind": "plain",
+                                "optional": true,
+                                "type": "string"
                               },
                               "topology_key": {
                                 "description": "the key of node labels. Nodes that have a label with this key and identical values are considered to be in the same topology.",

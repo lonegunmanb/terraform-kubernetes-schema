@@ -1545,7 +1545,14 @@ const kubernetesPodV1 = `{
                         }
                       ]
                     ],
+                    "match_label_keys": [
+                      "set",
+                      "string"
+                    ],
                     "max_skew": "number",
+                    "min_domains": "number",
+                    "node_affinity_policy": "string",
+                    "node_taints_policy": "string",
                     "topology_key": "string",
                     "when_unsatisfiable": "string"
                   }
