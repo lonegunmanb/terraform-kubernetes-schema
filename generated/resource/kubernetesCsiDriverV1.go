@@ -109,6 +109,7 @@ const kubernetesCsiDriverV1 = `{
         "nesting_mode": "list"
       }
     },
+    "description": "The [Container Storage Interface](https://kubernetes-csi.github.io/docs/introduction.html) (CSI) is a standard for exposing arbitrary block and file storage systems to containerized workloads on Container Orchestration Systems (COs) like Kubernetes.",
     "description_kind": "plain"
   },
   "version": 0

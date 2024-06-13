@@ -102,6 +102,7 @@ const kubernetesPriorityClass = `{
         "nesting_mode": "list"
       }
     },
+    "description": "A PriorityClass is a non-namespaced object that defines a mapping from a priority class name to the integer value of the priority.",
     "description_kind": "plain"
   },
   "version": 0

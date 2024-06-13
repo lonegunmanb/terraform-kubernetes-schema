@@ -490,6 +490,7 @@ const kubernetesNetworkPolicyV1 = `{
         "nesting_mode": "list"
       }
     },
+    "description": "Kubernetes supports network policies to specify how groups of pods are allowed to communicate with each other and with other network endpoints. NetworkPolicy resources use labels to select pods and define rules which specify what traffic is allowed to the selected pods. Read more about network policies at https://kubernetes.io/docs/concepts/services-networking/network-policies/",
     "description_kind": "plain"
   },
   "version": 0

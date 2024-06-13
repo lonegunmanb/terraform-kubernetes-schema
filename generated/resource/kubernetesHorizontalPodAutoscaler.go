@@ -746,6 +746,7 @@ const kubernetesHorizontalPodAutoscaler = `{
         "nesting_mode": "list"
       }
     },
+    "description": "Horizontal Pod Autoscaler automatically scales the number of pods in a replication controller, deployment or replica set based on observed CPU utilization.",
     "description_kind": "plain"
   },
   "version": 0

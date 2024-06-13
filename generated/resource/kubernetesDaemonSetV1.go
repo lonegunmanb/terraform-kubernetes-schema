@@ -5221,6 +5221,7 @@ const kubernetesDaemonSetV1 = `{
         "nesting_mode": "single"
       }
     },
+    "description": "A DaemonSet ensures that all (or some) Nodes run a copy of a Pod. As nodes are added to the cluster, Pods are added to them. As nodes are removed from the cluster, those Pods are garbage collected. Deleting a DaemonSet will clean up the Pods it created.",
     "description_kind": "plain"
   },
   "version": 1

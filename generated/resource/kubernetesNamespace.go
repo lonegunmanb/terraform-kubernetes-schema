@@ -97,6 +97,7 @@ const kubernetesNamespace = `{
         "nesting_mode": "single"
       }
     },
+    "description": "Kubernetes supports multiple virtual clusters backed by the same physical cluster. These virtual clusters are called namespaces. Read more about namespaces at [Kubernetes reference](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/)",
     "description_kind": "plain"
   },
   "version": 0

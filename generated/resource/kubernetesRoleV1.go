@@ -130,6 +130,7 @@ const kubernetesRoleV1 = `{
         "nesting_mode": "list"
       }
     },
+    "description": "A role contains rules that represent a set of permissions. Permissions are purely additive (there are no “deny” rules).",
     "description_kind": "plain"
   },
   "version": 0

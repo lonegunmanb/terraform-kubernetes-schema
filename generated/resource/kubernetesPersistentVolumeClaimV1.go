@@ -226,6 +226,7 @@ const kubernetesPersistentVolumeClaimV1 = `{
         "nesting_mode": "single"
       }
     },
+    "description": "This resource allows the user to request for and claim to a persistent volume.",
     "description_kind": "plain"
   },
   "version": 0

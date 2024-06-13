@@ -174,6 +174,7 @@ const kubernetesEndpoints = `{
         "nesting_mode": "set"
       }
     },
+    "description": "An Endpoints resource is an abstraction, linked to a Service, which defines the list of endpoints that actually implement the service.",
     "description_kind": "plain"
   },
   "version": 0

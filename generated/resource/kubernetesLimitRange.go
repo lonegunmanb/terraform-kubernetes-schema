@@ -155,6 +155,7 @@ const kubernetesLimitRange = `{
         "nesting_mode": "list"
       }
     },
+    "description": "Limit Range sets resource usage limits (e.g. memory, cpu, storage) for supported kinds of resources in a namespace. Read more in [the official docs](https://kubernetes.io/docs/concepts/policy/limit-range/).",
     "description_kind": "plain"
   },
   "version": 0

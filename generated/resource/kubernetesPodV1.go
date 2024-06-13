@@ -5033,6 +5033,7 @@ const kubernetesPodV1 = `{
         "nesting_mode": "single"
       }
     },
+    "description": "A pod is a group of one or more containers, the shared storage for those containers, and options about how to run the containers. Pods are always co-located and co-scheduled, and run in a shared context. Read more at [Kubernetes reference](https://kubernetes.io/docs/concepts/workloads/pods/pod/)",
     "description_kind": "plain"
   },
   "version": 1

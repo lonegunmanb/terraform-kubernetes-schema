@@ -154,6 +154,7 @@ const kubernetesStorageClassV1 = `{
         "nesting_mode": "list"
       }
     },
+    "description": "Storage class is the foundation of dynamic provisioning, allowing cluster administrators to define abstractions for the underlying storage platform. Read more [here] (https://kubernetes.io/blog/2017/03/dynamic-provisioning-and-storage-classes-kubernetes/)",
     "description_kind": "plain"
   },
   "version": 0

@@ -155,6 +155,7 @@ const kubernetesApiServiceV1 = `{
         "nesting_mode": "list"
       }
     },
+    "description": "An API Service is an abstraction which defines for locating and communicating with servers.",
     "description_kind": "plain"
   },
   "version": 0

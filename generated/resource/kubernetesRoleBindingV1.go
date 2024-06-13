@@ -148,6 +148,7 @@ const kubernetesRoleBindingV1 = `{
         "nesting_mode": "list"
       }
     },
+    "description": "A RoleBinding may be used to grant permission at the namespace level",
     "description_kind": "plain"
   },
   "version": 0

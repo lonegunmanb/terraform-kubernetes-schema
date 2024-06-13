@@ -192,6 +192,7 @@ const kubernetesClusterRole = `{
         "nesting_mode": "list"
       }
     },
+    "description": "A ClusterRole creates a role at the cluster level and in all namespaces.",
     "description_kind": "plain"
   },
   "version": 0

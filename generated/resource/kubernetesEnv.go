@@ -214,6 +214,7 @@ const kubernetesEnv = `{
         "nesting_mode": "list"
       }
     },
+    "description": "This resource provides a way to manage environment variables in resources that were created outside of Terraform. This resource provides functionality similar to the ` + "`" + `kubectl set env` + "`" + ` command.",
     "description_kind": "plain"
   },
   "version": 0

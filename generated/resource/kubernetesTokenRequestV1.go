@@ -153,6 +153,7 @@ const kubernetesTokenRequestV1 = `{
         "nesting_mode": "list"
       }
     },
+    "description": "TokenRequest requests a token for a given service account.",
     "description_kind": "plain"
   },
   "version": 0

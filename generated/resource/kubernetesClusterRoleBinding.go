@@ -142,6 +142,7 @@ const kubernetesClusterRoleBinding = `{
         "nesting_mode": "list"
       }
     },
+    "description": "A ClusterRoleBinding may be used to grant permission at the cluster level and in all namespaces",
     "description_kind": "plain"
   },
   "version": 0

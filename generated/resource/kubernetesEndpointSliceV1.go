@@ -233,6 +233,7 @@ const kubernetesEndpointSliceV1 = `{
         "nesting_mode": "list"
       }
     },
+    "description": "An EndpointSlice contains references to a set of network endpoints.",
     "description_kind": "plain"
   },
   "version": 0

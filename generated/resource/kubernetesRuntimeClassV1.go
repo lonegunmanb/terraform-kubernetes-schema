@@ -84,6 +84,7 @@ const kubernetesRuntimeClassV1 = `{
         "nesting_mode": "list"
       }
     },
+    "description": "A runtime class is used to determine which container runtime is used to run all containers in a pod.",
     "description_kind": "plain"
   },
   "version": 0
