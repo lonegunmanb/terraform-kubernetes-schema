@@ -194,6 +194,7 @@ const kubernetesMutatingWebhookConfigurationV1 = `{
         "nesting_mode": "list"
       }
     },
+    "description": "A Mutating Webhook Configuration configures a [mutating admission webhook](https://kubernetes.io/docs/reference/access-authn-authz/extensible-admission-controllers/#what-are-admission-webhooks). This data source allows you to pull data about a given mutating webhook configuration based on its name.",
     "description_kind": "plain"
   },
   "version": 0

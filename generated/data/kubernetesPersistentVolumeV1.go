@@ -1057,6 +1057,7 @@ const kubernetesPersistentVolumeV1 = `{
         "nesting_mode": "list"
       }
     },
+    "description": "A PersistentVolume (PV) is a piece of networked storage in the cluster provisioned by an administrator. It is a resource in the cluster just like a node is a cluster resource. Persistent Volumes have a lifecycle independent of any individual pod that uses the PV. This data source retrieves information about the specified PV.",
     "description_kind": "plain"
   },
   "version": 0

@@ -118,6 +118,7 @@ const kubernetesServiceAccountV1 = `{
         "nesting_mode": "list"
       }
     },
+    "description": "A service account provides an identity for processes that run in a Pod. This data source reads the service account and makes specific attributes available to Terraform. More info: https://kubernetes.io/docs/reference/access-authn-authz/service-accounts-admin/.",
     "description_kind": "plain"
   },
   "version": 0

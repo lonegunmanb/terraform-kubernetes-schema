@@ -112,6 +112,7 @@ func init() {
 	dataSources["kubernetes_resources"] = data.KubernetesResourcesSchema()  
 	dataSources["kubernetes_secret"] = data.KubernetesSecretSchema()  
 	dataSources["kubernetes_secret_v1"] = data.KubernetesSecretV1Schema()  
+	dataSources["kubernetes_server_version"] = data.KubernetesServerVersionSchema()  
 	dataSources["kubernetes_service"] = data.KubernetesServiceSchema()  
 	dataSources["kubernetes_service_account"] = data.KubernetesServiceAccountSchema()  
 	dataSources["kubernetes_service_account_v1"] = data.KubernetesServiceAccountV1Schema()  

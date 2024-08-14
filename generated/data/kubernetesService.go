@@ -184,6 +184,7 @@ const kubernetesService = `{
         "nesting_mode": "list"
       }
     },
+    "description": "A Service is an abstraction which defines a logical set of pods and a policy by which to access them - sometimes called a micro-service. This data source allows you to pull data about such service.",
     "description_kind": "plain"
   },
   "version": 0

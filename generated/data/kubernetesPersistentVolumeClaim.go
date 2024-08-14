@@ -196,6 +196,7 @@ const kubernetesPersistentVolumeClaim = `{
         "nesting_mode": "list"
       }
     },
+    "description": "A PersistentVolumeClaim (PVC) is a request for storage by a user. This data source retrieves information about the specified PVC.",
     "description_kind": "plain"
   },
   "version": 0

@@ -89,6 +89,7 @@ const kubernetesNamespace = `{
         "nesting_mode": "list"
       }
     },
+    "description": "This data source provides a mechanism to query attributes of any specific namespace within a Kubernetes cluster. In Kubernetes, namespaces provide a scope for names and are intended as a way to divide cluster resources between multiple users.",
     "description_kind": "plain"
   },
   "version": 0

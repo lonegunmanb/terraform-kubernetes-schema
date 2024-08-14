@@ -102,6 +102,7 @@ const kubernetesConfigMap = `{
         "nesting_mode": "list"
       }
     },
+    "description": "Config Maps are key-value pairs containing configuration data. The Config Map data source provides a mechanism for extracting these key-value pairs.",
     "description_kind": "plain"
   },
   "version": 0

@@ -92,6 +92,12 @@ const kubernetesStatefulSet = `{
       "spec": {
         "block": {
           "attributes": {
+            "min_ready_seconds": {
+              "description": "Minimum number of seconds for which a newly created pod should be ready without any of its container crashing for it to be considered available. Defaults to 0. (pod will be considered available as soon as it is ready)",
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
             "pod_management_policy": {
               "computed": true,
               "description": "Controls how pods are created during initial scale up, when replacing pods on nodes, or when scaling down.",
