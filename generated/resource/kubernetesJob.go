@@ -104,6 +104,12 @@ const kubernetesJob = `{
               "optional": true,
               "type": "number"
             },
+            "backoff_limit_per_index": {
+              "description": "Specifies the limit for the number of retries within an index before marking this index as failed. When enabled the number of failures per index is kept in the pod's batch.kubernetes.io/job-index-failure-count annotation. It can only be set when Job's completionMode=Indexed, and the Pod's restart policy is Never. The field is immutable.",
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
             "completion_mode": {
               "computed": true,
               "description": "Specifies how Pod completions are tracked. It can be ` + "`" + `NonIndexed` + "`" + ` (default) or ` + "`" + `Indexed` + "`" + `. More info: https://kubernetes.io/docs/concepts/workloads/controllers/job/#completion-mode",
@@ -122,6 +128,12 @@ const kubernetesJob = `{
               "description_kind": "plain",
               "optional": true,
               "type": "bool"
+            },
+            "max_failed_indexes": {
+              "description": "Controls generation of pod labels and pod selectors. Leave unset unless you are certain what you are doing. When false or unset, the system pick labels unique to this job and appends those labels to the pod template. When true, the user is responsible for picking unique labels and specifying the selector. Failure to pick a unique label may cause this and other jobs to not function correctly. More info: https://git.k8s.io/community/contributors/design-proposals/selector-generation.md",
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
             },
             "parallelism": {
               "description": "Specifies the maximum desired number of pods the job should run at any given time. The actual number of pods running in steady state will be less than this number when ((.spec.completions - .status.successful) \u003c .spec.parallelism), i.e. when the work left to do is less than max parallelism. More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/",
@@ -706,6 +718,56 @@ const kubernetesJob = `{
                                                     "description_kind": "plain"
                                                   },
                                                   "nesting_mode": "list"
+                                                },
+                                                "namespace_selector": {
+                                                  "block": {
+                                                    "attributes": {
+                                                      "match_labels": {
+                                                        "description": "A map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of ` + "`" + `match_expressions` + "`" + `, whose key field is \"key\", the operator is \"In\", and the values array contains only \"value\". The requirements are ANDed.",
+                                                        "description_kind": "plain",
+                                                        "optional": true,
+                                                        "type": [
+                                                          "map",
+                                                          "string"
+                                                        ]
+                                                      }
+                                                    },
+                                                    "block_types": {
+                                                      "match_expressions": {
+                                                        "block": {
+                                                          "attributes": {
+                                                            "key": {
+                                                              "description": "The label key that the selector applies to.",
+                                                              "description_kind": "plain",
+                                                              "optional": true,
+                                                              "type": "string"
+                                                            },
+                                                            "operator": {
+                                                              "description": "A key's relationship to a set of values. Valid operators ard ` + "`" + `In` + "`" + `, ` + "`" + `NotIn` + "`" + `, ` + "`" + `Exists` + "`" + ` and ` + "`" + `DoesNotExist` + "`" + `.",
+                                                              "description_kind": "plain",
+                                                              "optional": true,
+                                                              "type": "string"
+                                                            },
+                                                            "values": {
+                                                              "description": "An array of string values. If the operator is ` + "`" + `In` + "`" + ` or ` + "`" + `NotIn` + "`" + `, the values array must be non-empty. If the operator is ` + "`" + `Exists` + "`" + ` or ` + "`" + `DoesNotExist` + "`" + `, the values array must be empty. This array is replaced during a strategic merge patch.",
+                                                              "description_kind": "plain",
+                                                              "optional": true,
+                                                              "type": [
+                                                                "set",
+                                                                "string"
+                                                              ]
+                                                            }
+                                                          },
+                                                          "description": "A list of label selector requirements. The requirements are ANDed.",
+                                                          "description_kind": "plain"
+                                                        },
+                                                        "nesting_mode": "list"
+                                                      }
+                                                    },
+                                                    "description": "A label query over a set of namespaces that matches the namespaceSelector in Kubernetes.",
+                                                    "description_kind": "plain"
+                                                  },
+                                                  "nesting_mode": "list"
                                                 }
                                               },
                                               "description": "A pod affinity term, associated with the corresponding weight",
@@ -787,6 +849,56 @@ const kubernetesJob = `{
                                                 }
                                               },
                                               "description": "A label query over a set of resources, in this case pods.",
+                                              "description_kind": "plain"
+                                            },
+                                            "nesting_mode": "list"
+                                          },
+                                          "namespace_selector": {
+                                            "block": {
+                                              "attributes": {
+                                                "match_labels": {
+                                                  "description": "A map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of ` + "`" + `match_expressions` + "`" + `, whose key field is \"key\", the operator is \"In\", and the values array contains only \"value\". The requirements are ANDed.",
+                                                  "description_kind": "plain",
+                                                  "optional": true,
+                                                  "type": [
+                                                    "map",
+                                                    "string"
+                                                  ]
+                                                }
+                                              },
+                                              "block_types": {
+                                                "match_expressions": {
+                                                  "block": {
+                                                    "attributes": {
+                                                      "key": {
+                                                        "description": "The label key that the selector applies to.",
+                                                        "description_kind": "plain",
+                                                        "optional": true,
+                                                        "type": "string"
+                                                      },
+                                                      "operator": {
+                                                        "description": "A key's relationship to a set of values. Valid operators ard ` + "`" + `In` + "`" + `, ` + "`" + `NotIn` + "`" + `, ` + "`" + `Exists` + "`" + ` and ` + "`" + `DoesNotExist` + "`" + `.",
+                                                        "description_kind": "plain",
+                                                        "optional": true,
+                                                        "type": "string"
+                                                      },
+                                                      "values": {
+                                                        "description": "An array of string values. If the operator is ` + "`" + `In` + "`" + ` or ` + "`" + `NotIn` + "`" + `, the values array must be non-empty. If the operator is ` + "`" + `Exists` + "`" + ` or ` + "`" + `DoesNotExist` + "`" + `, the values array must be empty. This array is replaced during a strategic merge patch.",
+                                                        "description_kind": "plain",
+                                                        "optional": true,
+                                                        "type": [
+                                                          "set",
+                                                          "string"
+                                                        ]
+                                                      }
+                                                    },
+                                                    "description": "A list of label selector requirements. The requirements are ANDed.",
+                                                    "description_kind": "plain"
+                                                  },
+                                                  "nesting_mode": "list"
+                                                }
+                                              },
+                                              "description": "A label query over a set of namespaces that matches the namespaceSelector in Kubernetes.",
                                               "description_kind": "plain"
                                             },
                                             "nesting_mode": "list"
@@ -887,6 +999,56 @@ const kubernetesJob = `{
                                                     "description_kind": "plain"
                                                   },
                                                   "nesting_mode": "list"
+                                                },
+                                                "namespace_selector": {
+                                                  "block": {
+                                                    "attributes": {
+                                                      "match_labels": {
+                                                        "description": "A map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of ` + "`" + `match_expressions` + "`" + `, whose key field is \"key\", the operator is \"In\", and the values array contains only \"value\". The requirements are ANDed.",
+                                                        "description_kind": "plain",
+                                                        "optional": true,
+                                                        "type": [
+                                                          "map",
+                                                          "string"
+                                                        ]
+                                                      }
+                                                    },
+                                                    "block_types": {
+                                                      "match_expressions": {
+                                                        "block": {
+                                                          "attributes": {
+                                                            "key": {
+                                                              "description": "The label key that the selector applies to.",
+                                                              "description_kind": "plain",
+                                                              "optional": true,
+                                                              "type": "string"
+                                                            },
+                                                            "operator": {
+                                                              "description": "A key's relationship to a set of values. Valid operators ard ` + "`" + `In` + "`" + `, ` + "`" + `NotIn` + "`" + `, ` + "`" + `Exists` + "`" + ` and ` + "`" + `DoesNotExist` + "`" + `.",
+                                                              "description_kind": "plain",
+                                                              "optional": true,
+                                                              "type": "string"
+                                                            },
+                                                            "values": {
+                                                              "description": "An array of string values. If the operator is ` + "`" + `In` + "`" + ` or ` + "`" + `NotIn` + "`" + `, the values array must be non-empty. If the operator is ` + "`" + `Exists` + "`" + ` or ` + "`" + `DoesNotExist` + "`" + `, the values array must be empty. This array is replaced during a strategic merge patch.",
+                                                              "description_kind": "plain",
+                                                              "optional": true,
+                                                              "type": [
+                                                                "set",
+                                                                "string"
+                                                              ]
+                                                            }
+                                                          },
+                                                          "description": "A list of label selector requirements. The requirements are ANDed.",
+                                                          "description_kind": "plain"
+                                                        },
+                                                        "nesting_mode": "list"
+                                                      }
+                                                    },
+                                                    "description": "A label query over a set of namespaces that matches the namespaceSelector in Kubernetes.",
+                                                    "description_kind": "plain"
+                                                  },
+                                                  "nesting_mode": "list"
                                                 }
                                               },
                                               "description": "A pod affinity term, associated with the corresponding weight",
@@ -968,6 +1130,56 @@ const kubernetesJob = `{
                                                 }
                                               },
                                               "description": "A label query over a set of resources, in this case pods.",
+                                              "description_kind": "plain"
+                                            },
+                                            "nesting_mode": "list"
+                                          },
+                                          "namespace_selector": {
+                                            "block": {
+                                              "attributes": {
+                                                "match_labels": {
+                                                  "description": "A map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of ` + "`" + `match_expressions` + "`" + `, whose key field is \"key\", the operator is \"In\", and the values array contains only \"value\". The requirements are ANDed.",
+                                                  "description_kind": "plain",
+                                                  "optional": true,
+                                                  "type": [
+                                                    "map",
+                                                    "string"
+                                                  ]
+                                                }
+                                              },
+                                              "block_types": {
+                                                "match_expressions": {
+                                                  "block": {
+                                                    "attributes": {
+                                                      "key": {
+                                                        "description": "The label key that the selector applies to.",
+                                                        "description_kind": "plain",
+                                                        "optional": true,
+                                                        "type": "string"
+                                                      },
+                                                      "operator": {
+                                                        "description": "A key's relationship to a set of values. Valid operators ard ` + "`" + `In` + "`" + `, ` + "`" + `NotIn` + "`" + `, ` + "`" + `Exists` + "`" + ` and ` + "`" + `DoesNotExist` + "`" + `.",
+                                                        "description_kind": "plain",
+                                                        "optional": true,
+                                                        "type": "string"
+                                                      },
+                                                      "values": {
+                                                        "description": "An array of string values. If the operator is ` + "`" + `In` + "`" + ` or ` + "`" + `NotIn` + "`" + `, the values array must be non-empty. If the operator is ` + "`" + `Exists` + "`" + ` or ` + "`" + `DoesNotExist` + "`" + `, the values array must be empty. This array is replaced during a strategic merge patch.",
+                                                        "description_kind": "plain",
+                                                        "optional": true,
+                                                        "type": [
+                                                          "set",
+                                                          "string"
+                                                        ]
+                                                      }
+                                                    },
+                                                    "description": "A list of label selector requirements. The requirements are ANDed.",
+                                                    "description_kind": "plain"
+                                                  },
+                                                  "nesting_mode": "list"
+                                                }
+                                              },
+                                              "description": "A label query over a set of namespaces that matches the namespaceSelector in Kubernetes.",
                                               "description_kind": "plain"
                                             },
                                             "nesting_mode": "list"
@@ -2140,6 +2352,27 @@ const kubernetesJob = `{
                                   "description_kind": "plain"
                                 },
                                 "max_items": 1,
+                                "nesting_mode": "list"
+                              },
+                              "volume_device": {
+                                "block": {
+                                  "attributes": {
+                                    "device_path": {
+                                      "description": "Path within the container at which the volume device should be attached. For example '/dev/xvda'.",
+                                      "description_kind": "plain",
+                                      "required": true,
+                                      "type": "string"
+                                    },
+                                    "name": {
+                                      "description": "This must match the Name of a PersistentVolumeClaim.",
+                                      "description_kind": "plain",
+                                      "required": true,
+                                      "type": "string"
+                                    }
+                                  },
+                                  "description": "Raw volume devices to attach into the container's filesystem as raw block devices. Cannot be updated.",
+                                  "description_kind": "plain"
+                                },
                                 "nesting_mode": "list"
                               },
                               "volume_mount": {
@@ -3425,6 +3658,27 @@ const kubernetesJob = `{
                                   "description_kind": "plain"
                                 },
                                 "max_items": 1,
+                                "nesting_mode": "list"
+                              },
+                              "volume_device": {
+                                "block": {
+                                  "attributes": {
+                                    "device_path": {
+                                      "description": "Path within the container at which the volume device should be attached. For example '/dev/xvda'.",
+                                      "description_kind": "plain",
+                                      "required": true,
+                                      "type": "string"
+                                    },
+                                    "name": {
+                                      "description": "This must match the Name of a PersistentVolumeClaim.",
+                                      "description_kind": "plain",
+                                      "required": true,
+                                      "type": "string"
+                                    }
+                                  },
+                                  "description": "Raw volume devices to attach into the container's filesystem as raw block devices. Cannot be updated.",
+                                  "description_kind": "plain"
+                                },
                                 "nesting_mode": "list"
                               },
                               "volume_mount": {

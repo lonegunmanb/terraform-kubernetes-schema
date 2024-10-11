@@ -168,6 +168,32 @@ const kubernetesPod = `{
                                           }
                                         ]
                                       ],
+                                      "namespace_selector": [
+                                        "list",
+                                        [
+                                          "object",
+                                          {
+                                            "match_expressions": [
+                                              "list",
+                                              [
+                                                "object",
+                                                {
+                                                  "key": "string",
+                                                  "operator": "string",
+                                                  "values": [
+                                                    "set",
+                                                    "string"
+                                                  ]
+                                                }
+                                              ]
+                                            ],
+                                            "match_labels": [
+                                              "map",
+                                              "string"
+                                            ]
+                                          }
+                                        ]
+                                      ],
                                       "namespaces": [
                                         "set",
                                         "string"
@@ -186,6 +212,32 @@ const kubernetesPod = `{
                               "object",
                               {
                                 "label_selector": [
+                                  "list",
+                                  [
+                                    "object",
+                                    {
+                                      "match_expressions": [
+                                        "list",
+                                        [
+                                          "object",
+                                          {
+                                            "key": "string",
+                                            "operator": "string",
+                                            "values": [
+                                              "set",
+                                              "string"
+                                            ]
+                                          }
+                                        ]
+                                      ],
+                                      "match_labels": [
+                                        "map",
+                                        "string"
+                                      ]
+                                    }
+                                  ]
+                                ],
+                                "namespace_selector": [
                                   "list",
                                   [
                                     "object",
@@ -263,6 +315,32 @@ const kubernetesPod = `{
                                           }
                                         ]
                                       ],
+                                      "namespace_selector": [
+                                        "list",
+                                        [
+                                          "object",
+                                          {
+                                            "match_expressions": [
+                                              "list",
+                                              [
+                                                "object",
+                                                {
+                                                  "key": "string",
+                                                  "operator": "string",
+                                                  "values": [
+                                                    "set",
+                                                    "string"
+                                                  ]
+                                                }
+                                              ]
+                                            ],
+                                            "match_labels": [
+                                              "map",
+                                              "string"
+                                            ]
+                                          }
+                                        ]
+                                      ],
                                       "namespaces": [
                                         "set",
                                         "string"
@@ -281,6 +359,32 @@ const kubernetesPod = `{
                               "object",
                               {
                                 "label_selector": [
+                                  "list",
+                                  [
+                                    "object",
+                                    {
+                                      "match_expressions": [
+                                        "list",
+                                        [
+                                          "object",
+                                          {
+                                            "key": "string",
+                                            "operator": "string",
+                                            "values": [
+                                              "set",
+                                              "string"
+                                            ]
+                                          }
+                                        ]
+                                      ],
+                                      "match_labels": [
+                                        "map",
+                                        "string"
+                                      ]
+                                    }
+                                  ]
+                                ],
+                                "namespace_selector": [
                                   "list",
                                   [
                                     "object",
@@ -821,6 +925,16 @@ const kubernetesPod = `{
                     "termination_message_path": "string",
                     "termination_message_policy": "string",
                     "tty": "bool",
+                    "volume_device": [
+                      "list",
+                      [
+                        "object",
+                        {
+                          "device_path": "string",
+                          "name": "string"
+                        }
+                      ]
+                    ],
                     "volume_mount": [
                       "list",
                       [
@@ -1392,6 +1506,16 @@ const kubernetesPod = `{
                     "termination_message_path": "string",
                     "termination_message_policy": "string",
                     "tty": "bool",
+                    "volume_device": [
+                      "list",
+                      [
+                        "object",
+                        {
+                          "device_path": "string",
+                          "name": "string"
+                        }
+                      ]
+                    ],
                     "volume_mount": [
                       "list",
                       [
