@@ -360,7 +360,7 @@ const kubernetesDeploymentV1 = `{
                           "type": "string"
                         },
                         "restart_policy": {
-                          "description": "Restart policy for all containers within the pod. One of Always, OnFailure, Never. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#restart-policy.",
+                          "description": "Restart policy for all containers within the pod. Defaults to Always as the only option. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#restart-policy.",
                           "description_kind": "plain",
                           "optional": true,
                           "type": "string"

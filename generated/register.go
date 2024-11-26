@@ -82,6 +82,7 @@ func init() {
 	resources["kubernetes_runtime_class_v1"] = resource.KubernetesRuntimeClassV1Schema()  
 	resources["kubernetes_secret"] = resource.KubernetesSecretSchema()  
 	resources["kubernetes_secret_v1"] = resource.KubernetesSecretV1Schema()  
+	resources["kubernetes_secret_v1_data"] = resource.KubernetesSecretV1DataSchema()  
 	resources["kubernetes_service"] = resource.KubernetesServiceSchema()  
 	resources["kubernetes_service_account"] = resource.KubernetesServiceAccountSchema()  
 	resources["kubernetes_service_account_v1"] = resource.KubernetesServiceAccountV1Schema()  

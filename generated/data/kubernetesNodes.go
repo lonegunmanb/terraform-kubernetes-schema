@@ -93,6 +93,20 @@ const kubernetesNodes = `{
                       "map",
                       "string"
                     ],
+                    "conditions": [
+                      "list",
+                      [
+                        "object",
+                        {
+                          "last_heartbeat_time": "string",
+                          "last_transition_time": "string",
+                          "message": "string",
+                          "reason": "string",
+                          "status": "string",
+                          "type": "string"
+                        }
+                      ]
+                    ],
                     "node_info": [
                       "list",
                       [
