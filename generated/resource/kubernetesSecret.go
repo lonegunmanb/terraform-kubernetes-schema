@@ -19,6 +19,21 @@ const kubernetesSecret = `{
           "string"
         ]
       },
+      "binary_data_wo": {
+        "description": "A write-only map of the secret data in base64 encoding. Use this for binary data.",
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
+      },
+      "binary_data_wo_revision": {
+        "description": "The current revision of the write-only \"binary_data_wo\" attribute. Incrementing this integer value will cause Terraform to update the write-only value.",
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "data": {
         "computed": true,
         "description": "A map of the secret data.",
@@ -29,6 +44,21 @@ const kubernetesSecret = `{
           "map",
           "string"
         ]
+      },
+      "data_wo": {
+        "description": "A map write-only of the secret data.",
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
+      },
+      "data_wo_revision": {
+        "description": "The current revision of the write-only \"data_wo\" attribute. Incrementing this integer value will cause Terraform to update the write-only value.",
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
       },
       "id": {
         "computed": true,
