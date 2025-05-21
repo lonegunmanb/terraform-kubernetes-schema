@@ -26,7 +26,8 @@ const kubernetesSecret = `{
         "type": [
           "map",
           "string"
-        ]
+        ],
+        "write_only": true
       },
       "binary_data_wo_revision": {
         "description": "The current revision of the write-only \"binary_data_wo\" attribute. Incrementing this integer value will cause Terraform to update the write-only value.",
@@ -52,7 +53,8 @@ const kubernetesSecret = `{
         "type": [
           "map",
           "string"
-        ]
+        ],
+        "write_only": true
       },
       "data_wo_revision": {
         "description": "The current revision of the write-only \"data_wo\" attribute. Incrementing this integer value will cause Terraform to update the write-only value.",
