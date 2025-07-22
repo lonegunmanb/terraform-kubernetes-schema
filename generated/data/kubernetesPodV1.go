@@ -944,7 +944,8 @@ const kubernetesPodV1 = `{
                           "mount_propagation": "string",
                           "name": "string",
                           "read_only": "bool",
-                          "sub_path": "string"
+                          "sub_path": "string",
+                          "sub_path_expr": "string"
                         }
                       ]
                     ],
@@ -1525,7 +1526,8 @@ const kubernetesPodV1 = `{
                           "mount_propagation": "string",
                           "name": "string",
                           "read_only": "bool",
-                          "sub_path": "string"
+                          "sub_path": "string",
+                          "sub_path_expr": "string"
                         }
                       ]
                     ],

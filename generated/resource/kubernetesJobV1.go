@@ -2407,6 +2407,12 @@ const kubernetesJobV1 = `{
                                       "description_kind": "plain",
                                       "optional": true,
                                       "type": "string"
+                                    },
+                                    "sub_path_expr": {
+                                      "description": "Dynamic path within the volume from which the container's volume should be mounted. Defaults to \"\" (volume's root).",
+                                      "description_kind": "plain",
+                                      "optional": true,
+                                      "type": "string"
                                     }
                                   },
                                   "description": "Pod volumes to mount into the container's filesystem. Cannot be updated.",
@@ -3710,6 +3716,12 @@ const kubernetesJobV1 = `{
                                     },
                                     "sub_path": {
                                       "description": "Path within the volume from which the container's volume should be mounted. Defaults to \"\" (volume's root).",
+                                      "description_kind": "plain",
+                                      "optional": true,
+                                      "type": "string"
+                                    },
+                                    "sub_path_expr": {
+                                      "description": "Dynamic path within the volume from which the container's volume should be mounted. Defaults to \"\" (volume's root).",
                                       "description_kind": "plain",
                                       "optional": true,
                                       "type": "string"
